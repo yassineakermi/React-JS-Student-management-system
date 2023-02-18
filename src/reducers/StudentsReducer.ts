@@ -11,6 +11,18 @@ const StudentsReducer = (
         loading: false,
         students: action.payload,
       };
+    case "SET_CATEGORIES":
+      return {
+        ...state,
+        loading: false,
+        categories: action.payload,
+      };
+    case "SET_COLORS":
+      return {
+        ...state,
+        loading: false,
+        colors: action.payload,
+      };
 
     case "SET_ERROR":
       return {

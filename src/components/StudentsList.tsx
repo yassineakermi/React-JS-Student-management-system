@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useStudents } from "../hooks/useStudents";
 import { Button } from "./Button";
 import { StudentsItem } from "./StudentItem";
@@ -7,7 +7,7 @@ import { Spinner } from "./Spinner";
 import { Table } from "./Table";
 
 export const StudentsList = () => {
-  const { students, loading, error } = useStudents();
+  const { students, loading, error, categories } = useStudents();
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ export const StudentsList = () => {
         <>
           <div className="flex flex-col items-end mt-5">
             <Button
-              label="New student"
+              label="New product"
               click={() => setShowModal(!showModal)}
             />
           </div>
@@ -31,7 +31,7 @@ export const StudentsList = () => {
             {!students.length && (
               <tr className="bg-white">
                 <td colSpan={7} className="py-4 px-6 text-sm text-center">
-                  <p className="font-semibold">There are no students. 😢</p>
+                  <p className="font-semibold">There are no products. 😢</p>
                 </td>
               </tr>
             )}
@@ -45,7 +45,9 @@ export const StudentsList = () => {
         </div>
       )}
 
-      {showModal && <Modal onClose={() => setShowModal(!showModal)} />}
+      {showModal && (
+        <Modal cats={categories} onClose={() => setShowModal(!showModal)} />
+      )}
     </>
   );
 };

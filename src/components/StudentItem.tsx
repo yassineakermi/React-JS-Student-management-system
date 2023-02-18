@@ -10,9 +10,9 @@ interface StudentsItemProps {
 }
 
 export const StudentsItem: FC<StudentsItemProps> = ({ student }) => {
-  const { id, name, lastname, email, age, nationality } = student;
+  const { id, title, l, m, s, xs, xl } = student;
 
-  const { dispatch } = useStudents();
+  const { dispatch, categories } = useStudents();
   const [showDialogDelete, setShowDialogDelete] = useState(false);
   const [showDialogEdit, setShowDialogEdit] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
@@ -36,13 +36,13 @@ export const StudentsItem: FC<StudentsItemProps> = ({ student }) => {
   return (
     <>
       <tr className="border-b odd:bg-white even:bg-gray-100 odd:bg-white even:bg-gray-50 border-gray-50">
-        <td className="py-4 px-6 text-sm">{name}</td>
-        <td className="py-4 px-6 text-sm whitespace-nowrap">{lastname}</td>
-        <td className="py-4 px-6 text-sm whitespace-nowrap">{age}</td>
-        <td className="py-4 px-6 text-sm whitespace-nowrap">{email}</td>
-        <td className="flex py-4 px-6 text-sm whitespace-nowrap">
-          {nationality}
-        </td>
+        <td className="py-4 px-6 text-sm">{title}</td>
+        <td className="py-4 px-6 text-sm whitespace-nowrap">{xl ? xl : 0}</td>
+        <td className="py-4 px-6 text-sm whitespace-nowrap">{xs ? xs : 0}</td>
+        <td className="py-4 px-6 text-sm whitespace-nowrap">{l ? l : 0}</td>
+        <td className="py-4 px-6 text-sm whitespace-nowrap">{m ? m : 0}</td>
+        <td className="py-4 px-6 text-sm whitespace-nowrap">{s ? s : 0}</td>
+        <td className="py-4 px-6 text-sm whitespace-nowrap">{999}</td>
         <td className="py-4 px-6 text-sm whitespace-nowrap space-x-3">
           <button
             onClick={() => setShowDialogEdit(true)}
@@ -73,7 +73,12 @@ export const StudentsItem: FC<StudentsItemProps> = ({ student }) => {
       )}
 
       {showDialogEdit && (
-        <Modal isEdit item={student} onClose={() => setShowDialogEdit(false)} />
+        <Modal
+          cats={categories}
+          isEdit
+          item={student}
+          onClose={() => setShowDialogEdit(false)}
+        />
       )}
     </>
   );

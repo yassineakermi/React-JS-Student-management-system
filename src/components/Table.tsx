@@ -13,31 +13,43 @@ export const Table: FC = ({ children }) => {
                     scope="col"
                     className="py-3 px-6 text-xs tracking-wider text-left text-gray-700 uppercase"
                   >
-                    First Name
+                    Title
                   </th>
                   <th
                     scope="col"
                     className="py-3 px-6 text-xs tracking-wider text-left text-gray-700 uppercase"
                   >
-                    Last Name
+                    XL
                   </th>
                   <th
                     scope="col"
                     className="py-3 px-6 text-xs tracking-wider text-left text-gray-700 uppercase"
                   >
-                    Age
+                    XS
                   </th>
                   <th
                     scope="col"
                     className="py-3 px-6 text-xs tracking-wider text-left text-gray-700 uppercase"
                   >
-                    Email
+                    L
                   </th>
                   <th
                     scope="col"
                     className="py-3 px-6 text-xs tracking-wider text-left text-gray-700 uppercase"
                   >
-                    Nationality
+                    M
+                  </th>
+                  <th
+                    scope="col"
+                    className="py-3 px-6 text-xs tracking-wider text-left text-gray-700 uppercase"
+                  >
+                    S
+                  </th>
+                  <th
+                    scope="col"
+                    className="py-3 px-6 text-xs tracking-wider text-left text-gray-700 uppercase"
+                  >
+                    Price
                   </th>
                   <th
                     scope="col"
